@@ -2,12 +2,14 @@
 
 
 // Generate a matrix to store results for all 3 groups as required
-vector<Matrix> get_computation_result(vector<Stock*> stocks,const StockPrice& benchmark, const int n){
+vector<Matrix> get_computation_result(vector<Stock*> BEAT,vector<Stock*> MISS,vector<Stock*> MEET,const StockPrice& benchmark, const int n){
    
    vector<Matrix> res;
-   for(int i=0;i<3;i++){
-     res.push_back(call_bootstrap(stocks,benchmark,n)) 
-   }
+  
+    res.push_back(call_bootstrap(BEAT,benchmark,n)) 
+    res.push_back(call_bootstrap(MISS,benchmark,n)) 
+    res.push_back(call_bootstrap(MEET,benchmark,n)) 
+   
     return res;
 }
 
@@ -28,7 +30,7 @@ void Gnuplot_CAAR(vector<Matrix> computation_result){
     
     gnuplotPipe = popen("/opt/local/bin/gnuplot","w");
     if (gnuplotPipe) {
-        fprintf(gnuplotPipe,"plot \"%s\" with lines, \"%s\" with lines\n",tempDataFileName1, tempDataFileName2);
+        fprintf(gnuplotPipe,"plot \"%s\" with lines, \"%s\" with lines, \"%s\" with lines\n",tempDataFileName1, tempDataFileName2,tempDataFileName3);
         fflush(gnuplotPipe);
         tempDataFile = fopen(tempDataFileName1,"w");
         for (i=0; i <= dataSize; i++) {
