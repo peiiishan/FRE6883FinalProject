@@ -10,12 +10,10 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string>
-#include <iostream>
 #include <vector>
-#include <map>
 using namespace std;
 
-vector<Matrix> get_computation_result(vector<Stock*> stocks,const StockPrice& benchmark, const int n);
+vector<Matrix> get_computation_result(vector<Stock*> BEAT,vector<Stock*> MISS,vector<Stock*> MEET,const StockPrice& benchmark, const int n);
 void Gnuplot_CAAR(vector<Matrix> computation_result);
 
 
