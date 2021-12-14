@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <vector>
-#include "Stock.hpp"
+#include "Stock.h"
 #include <iostream>
 #include <vector>
 #include <random>
@@ -18,6 +18,6 @@
 
 using namespace std;
 
-vector<vector<double>> bootstrapping(vector<Stock*> stocks,const StockPrice& benchmark, const int n)；
+vector<vector<double>> bootstrapping(vector<Stock*> stocks,const StockPrice& benchmark, const int n);
 
 #endif /* Bootstrap_hpp */

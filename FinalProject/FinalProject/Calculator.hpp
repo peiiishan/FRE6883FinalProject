@@ -32,4 +32,5 @@ Vector stdev(const Matrix &m2);
 
 Matrix call_bootstrap(vector<Stock*> stocks,const StockPrice& benchmark, const int n);
 
+vector<Matrix> get_computation_result(Matrix output, const int n);
 #endif /* Calculator_hpp */

@@ -7,6 +7,7 @@
 
 #include "Calculator.hpp"
 #include "Bootstrap.hpp"
+#include "stock.h"
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -76,7 +77,7 @@ Matrix call_bootstrap(vector<Stock*> stocks,const StockPrice& benchmark, const i
     Matrix output_CAAR(40);
     Matrix output(4);
     for (int i=0;i<40;i++) {
-        Matrix m = Bootsrapping(stocks,benchmark,n); //function that gives me a matrix with size 80*2N
+        Matrix m = bootstrapping(stocks,benchmark,n); //function that gives me a matrix with size 80*2N
         output_AAR[i]=AAR(m); //这是个vector
         output_CAAR[i]=CAAR(output_AAR[i]);
     }
@@ -86,3 +87,7 @@ Matrix call_bootstrap(vector<Stock*> stocks,const StockPrice& benchmark, const i
     output[3] = stdev(output_CAAR);
     return output;
 };
+
+
+
+
