@@ -1,5 +1,10 @@
-#include"Gnuplot.hpp"
-
+#include "Gnuplot.hpp"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string>
+#include <vector>
 
 // Generate a matrix to store results for all 3 groups as required
 vector<Matrix> get_computation_result(vector<Stock*> BEAT,vector<Stock*> MISS,vector<Stock*> MEET,const StockPrice& benchmark, const int n){
